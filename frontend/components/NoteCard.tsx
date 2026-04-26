@@ -16,7 +16,7 @@ interface NoteCardProps {
 }
 
 export default function NoteCard({ note }: NoteCardProps) {
-    const handleDelete = async (e: React.FormEvent, _id: NoteCardProps) => {
+    const handleDelete = async (e: React.FormEvent, _id: string) => {
         e.preventDefault()
 
         if (!window.confirm("Are you sure you want to delete this note?")) return
