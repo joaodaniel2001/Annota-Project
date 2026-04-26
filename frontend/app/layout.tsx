@@ -1,5 +1,4 @@
-"use client"
-
+// layout.tsx (Sem "use client")
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
@@ -7,15 +6,23 @@ import Leftbar from "@/components/Leftbar";
 import { Inter, Manrope } from 'next/font/google';
 import Navbar from "@/components/Navbar";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter"
-});
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope"
-});
+// Agora o metadata funciona!
+export const metadata: Metadata = {
+  title: {
+    default: 'Annota',
+    template: '%s | Annota',
+  },
+  description: 'O Annota é a ferramenta definitiva para capturar notas, organizar pensamentos e aumentar sua produtividade diária.',
+  keywords: ['anotações', 'produtividade', 'notas online', 'organização', 'brainstorming'],
+  authors: [{ name: 'João Daniel de Araújo Lima' }],
+  robots: {
+    index: true,
+    follow: true,
+  }
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -25,7 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <div className="flex min-h-screen">
           <Leftbar />
-
           <div className="flex-1 flex flex-col">
             <Navbar />
             <main className="ml-64 mt-20.25 p-8">
@@ -33,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </main>
           </div>
         </div>
-
       </body>
     </html>
   );
